@@ -1,0 +1,2 @@
+/etc/init.d/networking restart
+ip route add 150.0.0.0/24 via 100.0.0.7

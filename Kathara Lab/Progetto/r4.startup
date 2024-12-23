@@ -1,0 +1,8 @@
+/etc/init.d/networking restart
+systemctl start frr
+ip route add 192.168.0.0/24 via 100.0.0.8
+
+iptables -A FORWARD -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+
+iptables -A FORWARD -j DROP
